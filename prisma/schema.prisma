@@ -1,0 +1,215 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model UserRole {
+  id        String   @id @default(cuid())
+  name      String
+  desc      String   @db.Text
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  User      User[]
+}
+
+model Village {
+  id        String   @id @default(cuid())
+  name      String
+  desc      String   @db.Text
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  Group     Group[]
+  User      User[]
+
+  Annoucement Annoucement[]
+
+  Project Project[]
+
+  Division Division[]
+}
+
+model Group {
+  id        String     @id @default(cuid())
+  Village   Village    @relation(fields: [idVillage], references: [id])
+  idVillage String
+  name      String
+  isActive  Boolean    @default(true)
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+  Position  Position[]
+  User      User[]
+
+  AnnoucementMember AnnoucementMember[]
+
+  Project Project[]
+
+  Division Division[]
+}
+
+model Position {
+  id        String   @id @default(cuid())
+  Group     Group    @relation(fields: [idGroup], references: [id])
+  idGroup   String
+  name      String
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  User      User[]
+}
+
+model User {
+  id         String    @id @default(cuid())
+  UserRole   UserRole  @relation(fields: [idUserRole], references: [id])
+  idUserRole String
+  Village    Village   @relation(fields: [idVillage], references: [id])
+  idVillage  String
+  Group      Group     @relation(fields: [idGroup], references: [id])
+  idGroup    String
+  Position   Position  @relation(fields: [idPosition], references: [id])
+  idPosition String
+  nik        String    @unique
+  name       String
+  phone      String    @unique
+  email      String?   @unique
+  gender     String    @default("M") // M = Male, F = Female
+  isActive   Boolean   @default(true)
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+  UserLog    UserLog[]
+
+  Annoucement Annoucement[]
+
+  AnnoucementMember AnnoucementMember[]
+
+  Project Project[]
+
+  ProjectMember ProjectMember[]
+
+  ProjectComment ProjectComment[]
+
+  Division Division[]
+}
+
+model UserLog {
+  id        String   @id @default(cuid())
+  User      User     @relation(fields: [idUser], references: [id])
+  idUser    String
+  action    String
+  desc      String   @db.Text
+  idContent String
+  tbContent String
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Annoucement {
+  id        String   @id @default(cuid())
+  Village   Village  @relation(fields: [idVillage], references: [id])
+  idVillage String
+  title     String
+  desc      String   @db.Text
+  isActive  Boolean  @default(true)
+  User      User     @relation(fields: [idUser], references: [id])
+  idUser    String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  AnnoucementMember AnnoucementMember[]
+}
+
+model AnnoucementMember {
+  id            String      @id @default(cuid())
+  Annoucement   Annoucement @relation(fields: [idAnnoucement], references: [id])
+  idAnnoucement String
+  User          User        @relation(fields: [idUser], references: [id])
+  idUser        String
+  Group         Group       @relation(fields: [idGroup], references: [id])
+  idGroup       String
+  isActive      Boolean     @default(true)
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+}
+
+model Project {
+  id        String   @id @default(cuid())
+  Village   Village  @relation(fields: [idVillage], references: [id])
+  idVillage String
+  Group     Group    @relation(fields: [idGroup], references: [id])
+  idGroup   String
+  name      String
+  desc      String   @db.Text
+  User      User     @relation(fields: [idUser], references: [id])
+  idUser    String
+  isActive  Boolean  @default(true)
+  createdBy String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  ProjectMember ProjectMember[]
+
+  ProjectFile ProjectFile[]
+
+  ProjectComment ProjectComment[]
+}
+
+model ProjectMember {
+  id        String   @id @default(cuid())
+  Project   Project  @relation(fields: [idProject], references: [id])
+  idProject String
+  User      User     @relation(fields: [idUser], references: [id])
+  idUser    String
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model ProjectFile {
+  id        String   @id @default(cuid())
+  Project   Project  @relation(fields: [idProject], references: [id])
+  idProject String
+  name      String
+  extension String
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model ProjectComment {
+  id        String   @id @default(cuid())
+  Project   Project  @relation(fields: [idProject], references: [id])
+  idProject String
+  User      User     @relation(fields: [createdBy], references: [id])
+  createdBy String
+  comment   String   @db.Text
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Division {
+  id        String   @id @default(cuid())
+  Village   Village  @relation(fields: [idVillage], references: [id])
+  idVillage String
+  Group     Group    @relation(fields: [idGroup], references: [id])
+  idGroup   String
+  name      String
+  desc      String   @db.Text
+  isActive  Boolean  @default(true)
+  User      User     @relation(fields: [createdBy], references: [id])
+  createdBy String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
