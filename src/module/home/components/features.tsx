@@ -40,7 +40,7 @@ export default function Features() {
                      </ActionIcon>
                   </Center>
                   <Center>
-                     <Text fz={15} c={WARNA.biruTua}>Divisi</Text>
+                     <Text fz={15} c={WARNA.biruTua}>Proyek</Text>
                   </Center>
                </Box>
                <Box onClick={() => router.push('/announcement')}>
@@ -53,6 +53,9 @@ export default function Features() {
                         <HiMegaphone  size={35} color={WARNA.biruTua} />
                      </ActionIcon>
                   </Center>
+                  <Center>
+                     <Text fz={15} c={WARNA.biruTua}>Pengumuman</Text>
+                  </Center>
                </Box>
                <Box onClick={() => router.push('detail-feature')}>
                   <Center>
@@ -63,6 +66,9 @@ export default function Features() {
                         gradient={{ from: '#DFDA7C', to: '#F2AF46', deg: 174 }}>
                         <PiUsersFourFill size={35} color={WARNA.biruTua} />
                      </ActionIcon>
+                     <Center>
+                        <Text fz={15} c={WARNA.biruTua}>Semua</Text>
+                     </Center>
                   </Center>
                </Box>
             </SimpleGrid>
