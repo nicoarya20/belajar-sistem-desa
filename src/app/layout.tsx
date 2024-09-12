@@ -1,25 +1,41 @@
+import { WARNA } from '@/module/_global/fun/WARNA';
+import { Box, ColorSchemeScript, Container, MantineProvider, rem } from '@mantine/core';
 import '@mantine/core/styles.css';
-
-import React from 'react';
-import { ColorSchemeScript, MantineProvider } from '@mantine/core';
-
+import { Lato } from 'next/font/google';
+import { Toaster } from 'react-hot-toast';
 
 export const metadata = {
-  title: 'Mantine Next.js template',
-  description: 'I am using Mantine with Next.js!',
+  title: "SISTEM DESA MANDIRI",
+  description: "I have followed setup instruction carefully",
 };
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export default function RootLayout({ children }: { children: any }) {
+const LatoFont = Lato({
+  subsets: ["latin"],
+  weight: ["300", "400", "700"],
+});
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en">
       <head>
-        <ColorSchemeScript defaultColorScheme='dark' />
-        <link rel="shortcut icon" href="/favicon.svg" />
+        <ColorSchemeScript/>
       </head>
-      <body>
-        <MantineProvider defaultColorScheme='dark'>{children}</MantineProvider>
-      </body>
+      <body className={LatoFont.className}>
+        <MantineProvider>
+        <Box bg={'#252A2F'} pos={"fixed"} h={"100%"} w={"100%"} style={{
+          overflowY: "auto"
+        }}>
+          <Toaster/>
+          <Container mih={'100vh'} p={0} size={rem(550)} bg={WARNA.bgWhite}>
+            {children}
+          </Container>
+        </Box>  
+        </MantineProvider>
+        </body>
     </html>
   );
 }
