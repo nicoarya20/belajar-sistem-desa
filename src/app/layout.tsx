@@ -1,6 +1,7 @@
 import { WARNA } from '@/module/_global/fun/WARNA';
 import { Box, ColorSchemeScript, Container, MantineProvider, rem } from '@mantine/core';
 import '@mantine/core/styles.css';
+import '@mantine/carousel/styles.css';
 import { Lato } from 'next/font/google';
 import { Toaster } from 'react-hot-toast';
 

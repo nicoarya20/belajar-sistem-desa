@@ -21,7 +21,7 @@ export default function DrawerAnnouncement() {
             >
                <Flex justify={"center"} align={"center"} direction={"column"}
                   onClick={() => {
-                     router.push('/announcements/create')
+                     router.push('/announcement/create')
                      onClose()
                   }}>
 

@@ -1,12 +1,12 @@
 import { Box } from "@mantine/core";
 import NavbarAnnouncement from "../component/ui/navbar_announcement";
-import ListAnnouncement from "../component/list_announcement";
+import DetailAnnouncement from "../component/detail_announcement";
 
-export default function ViewListAnnouncement() {
+export default function ViewDetailAnnouncement() {
    return (
       <Box>
          <NavbarAnnouncement />
-         <ListAnnouncement/>
+         <DetailAnnouncement/>
       </Box>
    )
 }

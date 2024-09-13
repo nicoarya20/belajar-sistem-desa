@@ -4,4 +4,4 @@ function Page() {
    return (
       <ViewListAnnouncement />);
 }
-export default Page
+export default Page;

@@ -3,15 +3,15 @@
 import { WARNA } from "@/module/_global/fun/WARNA";
 import { ActionIcon, Box, Center, SimpleGrid, Text } from "@mantine/core";
 import {useRouter} from "next/navigation";
-import { HiMegaphone, HiMiniPresentationChartBar, HiMiniUserGroup } from "react-icons/hi2";
-import { PiUsersFourFill } from "react-icons/pi";
+import { HiMegaphone, HiMiniPresentationChartBar, HiMiniUserGroup, HiSquares2X2 } from "react-icons/hi2";
+
 
 export default function Features() {
    const router = useRouter()
    return (
       <>
          <Box pt={10}>
-            <Text c={WARNA.biruTua}>Features</Text>
+            <Text c={WARNA.biruTua} mb={10} fw={"bold"} fz={16}>Features</Text>
             <SimpleGrid
                cols={{ base: 4, sm: 4, lg: 4 }}
             >
@@ -64,11 +64,11 @@ export default function Features() {
                         aria-label="Gradient action icon"
                         radius={100}
                         gradient={{ from: '#DFDA7C', to: '#F2AF46', deg: 174 }}>
-                        <PiUsersFourFill size={35} color={WARNA.biruTua} />
+                        <HiSquares2X2 size={35} color={WARNA.biruTua} />
                      </ActionIcon>
+                     </Center>
                      <Center>
                         <Text fz={15} c={WARNA.biruTua}>Semua</Text>
-                     </Center>
                   </Center>
                </Box>
             </SimpleGrid>
