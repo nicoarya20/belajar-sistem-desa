@@ -1,10 +1,8 @@
 import ViewDetailAnnouncement from "@/module/announcement/view/view_detail_announcement";
 
-function Page() {
-   // didalamkurungpage{ params }: { params: { id: string } }
+function Page({ params }: { params: { id: string } }) {
    return(
-      <ViewDetailAnnouncement  />
-      //  didalam diatas(data={params.id})
+      <ViewDetailAnnouncement data={params.id}  />
    )
 }
 export default Page;

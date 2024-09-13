@@ -1,9 +1,9 @@
 import ViewEditAnnouncement from "@/module/announcement/view/view_edit_announcement";
 
 
-function Page() {
+function Page({ params }: { params: { id: string } }) {
   return (
-    <ViewEditAnnouncement/>
+    <ViewEditAnnouncement data={params.id}/>
   )
 }
 export default Page;

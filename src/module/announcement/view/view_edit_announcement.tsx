@@ -4,7 +4,7 @@ import NavbarEditAnnouncement from "../component/ui/navbar_edit_announcement";
 import { HiOutlineChevronRight } from "react-icons/hi2";
 
 
-export default function ViewEditAnnouncement() {
+export default function ViewEditAnnouncement({ data }: { data: string }) {
    // didalam announcement({data} : {data:string})
    return (
       <Box>

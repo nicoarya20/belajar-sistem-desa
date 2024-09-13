@@ -2,7 +2,7 @@ import { Box, Group, Text } from "@mantine/core";
 import NavbarDetailMember from "../component/ui/navbar_detail_member";
 import { RiIdCardFill } from "react-icons/ri";
 
-export default function ViewDetailMember() {
+export default function ViewDetailMember({data}: {data: string}) {
   return (
     <Box>
       <NavbarDetailMember/>
