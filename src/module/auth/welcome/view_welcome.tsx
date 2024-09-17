@@ -41,8 +41,8 @@ export function ViewWelcome() {
 
    return (
       <Stack>
-         <Group pos={"absolute"} top={20} right={40}>
-            <Anchor>Lewati</Anchor>
+         <Group pos={"absolute"} top={20} right={890}>
+            <Anchor fw={"bold"}>Lewati</Anchor>
          </Group>
          <Stack gap={"xl"} p={"xl"} pt={50}>
             <WelcomeItem index={index} listTextWellcome={listTextWellcome} />
@@ -63,6 +63,7 @@ export function ViewWelcome() {
                radius={100}
                size="md"
                color={WARNA.biruTua}
+               left={850}
             >
                Sebelumnya
             </Button>
@@ -74,6 +75,7 @@ export function ViewWelcome() {
                radius={100}
                size="md"
                color={WARNA.biruTua}
+               right={850}
             >
                Lanjutkan
             </Button>

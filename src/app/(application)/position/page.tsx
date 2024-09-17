@@ -1,5 +1,8 @@
 import { ViewListPosition } from "@/module/position";
 function Page(){
-    return<ViewListPosition/>
+    return(
+    <ViewListPosition/>
+
+    );
 }
 export default Page;

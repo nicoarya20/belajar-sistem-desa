@@ -24,7 +24,7 @@ export default function ViewVerification() {
                         Masukkan kode yang kami kirimkan melalui WhatsApp
                      </Text>
                      <Text fz={12} c={WARNA.biruTua} fw={"bold"}>
-                        +628123456789
+                        +6289647037426
                      </Text>
                   </Box>
                   <Box pt={30}>

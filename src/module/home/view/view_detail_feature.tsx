@@ -4,7 +4,7 @@ import { WARNA } from "@/module/_global/fun/WARNA"
 import LayoutIconBack from "@/module/_global/layout/layout_icon_back"
 import LayoutNavbarHome from "@/module/_global/layout/layout_navbar_home"
 import { ActionIcon, Box, Center, Grid,  SimpleGrid, Text } from "@mantine/core"
-import { HiMegaphone, HiMiniPresentationChartBar, HiMiniUserGroup, HiUsers } from "react-icons/hi2"
+import { HiMegaphone, HiMiniPresentationChartBar, HiUsers } from "react-icons/hi2"
 import { useRouter } from "next/navigation"
 import { PiUsersFourFill } from "react-icons/pi"
 import { FaUserTie } from "react-icons/fa6"
@@ -30,7 +30,7 @@ export default function ViewDetailFeature() {
             <Box>
                <SimpleGrid
                   cols={{ base: 4, sm: 4, lg: 4 }}>
-                  <Box>
+                  {/* <Box>
                      <Center>
                         <ActionIcon variant="gradient"
                            size={68}
@@ -43,7 +43,7 @@ export default function ViewDetailFeature() {
                      <Center>
                         <Text fz={15} c={WARNA.biruTua}>Divisi</Text>
                      </Center>
-                  </Box>
+                  </Box> */}
                   <Box onClick={() => router.push('/project')}>
                      <Center>
                         <ActionIcon variant="gradient"

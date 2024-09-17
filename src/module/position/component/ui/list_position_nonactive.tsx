@@ -1,7 +1,7 @@
 'use client'
 import { WARNA } from "@/module/_global/fun/WARNA"
 import LayoutDrawer from "@/module/_global/layout/layout_drawer"
-import EditDrawerGroup from "@/module/group/components/ui/edit_drawer_group"
+// import EditDrawerGroup from "@/module/group/components/ui/edit_drawer_group"
 import { ActionIcon, Box, Group, Text, TextInput } from "@mantine/core"
 import { useState } from "react"
 import { FaUserTie } from "react-icons/fa6"

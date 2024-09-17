@@ -1,3 +1,4 @@
+"use client"
 import { Box, rem, Tabs } from "@mantine/core";
 import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 import { IoCloseCircleOutline } from "react-icons/io5";
@@ -23,12 +24,12 @@ export default function TabListGroup() {
                     </Tabs.Tab>
                 </Tabs.List>
                 <Tabs.Panel value="aktif">
-                <ListPositionActive/>
+                    <ListPositionActive />
                 </Tabs.Panel>
                 <Tabs.Panel value="tidak-aktif">
-                <ListPositionNonActive/>
+                    <ListPositionNonActive />
                 </Tabs.Panel>
-                </Tabs>
-                </Box>
+            </Tabs>
+        </Box>
     );
 }
